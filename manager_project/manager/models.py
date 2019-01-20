@@ -75,10 +75,10 @@ class Manager(models.Model):
 
 class Worker(models.Model):
     # 人
-    pelson = models.ForeignKey('Person', on_delete=models.PROTECT)
+    person = models.ForeignKey('Person', on_delete=models.PROTECT)
     # 着任時期
     joined_at = models.DateTimeField()
     # やめた時期
-    quited_at = models.DateTimeField()
+    quited_at = models.DateTimeField(null=True, blank=True)
     # 担当上司
     manager = models.ForeignKey('Manager', on_delete=models.PROTECT)
